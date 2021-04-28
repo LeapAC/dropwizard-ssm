@@ -169,26 +169,30 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>${nexus-staging-maven-plugin.version}</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>true</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
+      <repository>
+          <id>leap-releases</id>
+          <url>http://artifactory.dc.leap/artifactory/libs-release</url>
+      </repository>
+      <snapshotRepository>
+          <id>leap-snapshots</id>
+          <url>http://artifactory.dc.leap/artifactory/libs-snapshot</url>
+      </snapshotRepository>
   </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>leap-releases</id>
+      <url>http://artifactory.dc.leap/artifactory/libs-release</url>
+    </repository>
+    <repository>
+      <id>leap-snapshots</id>
+      <url>http://artifactory.dc.leap/artifactory/libs-snapshot</url>
+    </repository>
+  </repositories>
 
   <profiles>
     <profile>
